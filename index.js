@@ -183,6 +183,7 @@ function renderGame() {
 function selectScene(scene) {
     currentScene = scene;
     renderGame();
+    window.scrollTo(0, 0);
 }
 
 window.onload = renderGame;
