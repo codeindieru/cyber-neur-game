@@ -11,14 +11,19 @@ let game = {
     }
 };
 
+function renderVariants(branchName) {
+    let content = "<ul>";
+    for (let variant in game[branchName].variants) {
+        content += `<li><a href="${variant}.html">${game[branchName].variants[variant]}</a></li>`;
+    }
+    content += "</ul>";
+    return content;
+}
+
 function renderGame() {
     let gameContainer = document.getElementById("gameContainer");
     let content = game.nachalo.content;
-    content += "<ul>";
-    for (let variant in game.nachalo.variants) {
-        content += `<li><a href="${variant}.html">${game.nachalo.variants[variant]}</a></li>`;
-    }
-    content += "</ul>";
+    content += renderVariants("nachalo");
     gameContainer.innerHTML = content;
 }
 
